@@ -1,0 +1,4 @@
+node_moduels/*
+src/*
+tsconfig.json
+npm_debug.log
