@@ -14,12 +14,13 @@ sequelize
     .then(() => {
     console.log("연결 성공");
 })
-    .catch(() => {
+    .catch((e) => {
     console.log("에러");
+    console.error(e);
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", userRouter_1.default);
 app.listen(port, () => {
-    console.log(`http://localhost:${port} NODE-ENV ${process.env.NODE_ENV} MYSQL ${process.env.MYSQL_DATABASE} ${process.env.MYSQL_PASSWORD} `);
+    console.log(`http://localhost:${port}`);
 });

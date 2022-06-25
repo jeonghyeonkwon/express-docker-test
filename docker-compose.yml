@@ -1,0 +1,25 @@
+version: "2.3"
+services:
+  db:
+    image: mariadb:10.5
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: docker_build
+      MYSQL_USER: jeonghyeon
+      MYSQL_PASSWORD: 1234
+  express:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:8000
+    restart: always
+    environment:
+      PORT: 8000
+      MYSQL_USER: jeonghyeon
+      MYSQL_DATABASE: docker_build
+      MYSQL_PASSWORD: 1234
+      MYSQL_HOST: db:3306

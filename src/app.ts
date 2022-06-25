@@ -13,8 +13,9 @@ sequelize
   .then(() => {
     console.log("연결 성공");
   })
-  .catch(() => {
+  .catch((e: any) => {
     console.log("에러");
+    console.error(e);
   });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
