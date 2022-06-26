@@ -15,11 +15,13 @@ sequelize
   })
   .catch((e: any) => {
     console.log("에러");
+    console.log(process.env.MYSQL_HOST);
+    console.log("---------");
     console.error(e);
   });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", userRouter);
 app.listen(port, () => {
-  console.log(`http://localhost:${port}`);
+  console.log(`http://localhost:${port} `);
 });
