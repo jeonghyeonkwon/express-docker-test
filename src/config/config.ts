@@ -5,7 +5,8 @@ type Config = {
   password: string;
   database: string;
   host: string;
-  [key: string]: string;
+  port: number;
+  [key: string]: string | number;
 };
 
 interface IConfigGroup {
@@ -20,6 +21,7 @@ const config: IConfigGroup = {
     password: process.env.MYSQL_PASSWORD!,
     database: process.env.MYSQL_DATABASE!,
     host: process.env.MYSQL_HOST!,
+    port: Number(process.env.MYSQL_PORT)!,
     dialect: "mysql",
   },
   test: {
@@ -27,6 +29,7 @@ const config: IConfigGroup = {
     password: process.env.MYSQL_PASSWORD!,
     database: process.env.MYSQL_DATABASE!,
     host: process.env.MYSQL_HOST!,
+    port: Number(process.env.MYSQL_PORT)!,
     dialect: "mysql",
   },
   production: {
@@ -34,6 +37,7 @@ const config: IConfigGroup = {
     password: process.env.MYSQL_PASSWORD!,
     database: process.env.MYSQL_DATABASE!,
     host: process.env.MYSQL_HOST!,
+    port: Number(process.env.MYSQL_PORT)!,
     dialect: "mysql",
   },
 };

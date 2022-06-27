@@ -13,12 +13,14 @@ sequelize
     .sync({ force: true })
     .then(() => {
     console.log("연결 성공");
+    console.log(process.env.MYSQL_HOST);
 })
     .catch((e) => {
     console.log("에러");
     console.log(process.env.MYSQL_HOST);
     console.log("---------");
     console.error(e);
+    process.exit(1);
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
